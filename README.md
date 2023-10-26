@@ -1,5 +1,7 @@
 # College-Finder
-Discover colleges with ease through  user-friendly platform in Himanchal Pradesh, India
+This College Finder Website simplifies the college search process by gathering data from multiple sources and storing it in a MongoDB database.
+
+Users can access this comprehensive database through an easy-to-navigate website with integrated map functionality. The platform offers customized search options, college profiles, and real-time updates to help users make informed decisions.
 
 OUTPUT:
 
