@@ -1,7 +1,7 @@
 # College-Finder
 This College Finder Website simplifies the college search process by gathering data from multiple sources and storing it in a MongoDB database.
 
-Users can access this comprehensive database through an easy-to-navigate website with integrated map functionality. The platform offers customized search options, college profiles, and real-time updates to help users make informed decisions.
+Users can access this comprehensive database through an easy-to-navigate website with integrated map functionality. The platform offers customized options, college profiles, and real-time updates to help users make informed decisions.
 
 OUTPUT:
 
