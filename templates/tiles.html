@@ -68,11 +68,21 @@
             <a href="{{college.link}}">
               <img src="/static/{{college.image}}" class="card-image" alt="Denim Jeans">
               <p class="heading">{{college.college_name}}</p>
+            </a>
+            <label for="selectCourse">Course Available:</label>
+            <select id="selectCourse" name="course" style="padding-top: 10px; padding-bottom: 10px;">
+              {% for course in course_web_data %}
+                <option value="{{ course }}">{{ course }}</option>
+              {% endfor %}
+            </select>
+            <a href="{{college.link}}">
               <p class="button-p"><button>Go to website</button></p>
             </a>
           </div>
           {% endfor %}
         </div>
+        
+                
       <!-- End of boxes -->
 
       <!-- Start of Footer -->
