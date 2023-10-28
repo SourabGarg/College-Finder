@@ -59,9 +59,12 @@ def get_district_data(district_name):
     district_data_list = []
     for document in cursor:
         if document['District'] == district_name:
-            district_data_list.append({"college_name": document['Name'],
-                                       "image": document['Image'],
-                                       "link": document['Link']})
+            district_data_list.append({
+                "college_name": document['Name'],
+                "image": document['Image'],
+                "link": document['Link'],
+                "course": document['Course']
+            })
     return district_data_list
 
 
@@ -70,7 +73,8 @@ def get_all():
     for document in cursor:
         all_district_datas.append({"college_name": document['Name'],
                                    "image": document['Image'],
-                                   "link": document['Link']})
+                                   "link": document['Link'],
+                                   "course": document['Course']})
     return all_district_datas
 
 
@@ -80,7 +84,8 @@ def get_government():
         if "Govt" in document['Name'] or "Government" in document['Name']:
             get_government_district_data.append({"college_name": document['Name'],
                                                  "image": document['Image'],
-                                                 "link": document['Link']})
+                                                 "link": document['Link'],
+                                                 "course": document['Course']})
     return get_government_district_data
 
 
@@ -90,17 +95,20 @@ def get_private():
         if "Pvt" in document['Name'] or "Private" in document['Name']:
             get_private_district_data.append({"college_name": document['Name'],
                                               "image": document['Image'],
-                                              "link": document['Link']})
+                                              "link": document['Link'],
+                                              "course": document['Course']})
     return get_private_district_data
 
 
 def get_other():
     get_other_district_data = []
     for document in cursor:
-        if "Pvt" not in document['Name'] and "Private" not in document['Name'] and "Govt" not in document['Name'] and "Government" not in document['Name']:
+        if "Pvt" not in document['Name'] and "Private" not in document['Name'] and "Govt" not in document['Name'] \
+                and "Government" not in document['Name']:
             get_other_district_data.append({"college_name": document['Name'],
                                             "image": document['Image'],
-                                            "link": document['Link']})
+                                            "link": document['Link'],
+                                            "course": document['Course']})
     return get_other_district_data
 
 
@@ -118,36 +126,77 @@ def print_map():
 @app.route('/district/<district_name>')
 def district_data(district_name):
     send_district_data = get_district_data(district_name)
+    for college in send_district_data:
+        college['course'] = eval(college['course'])
+
+    send_course_data = []
+    for college in send_district_data:
+        courses = college.get('course', [])
+        send_course_data.extend(courses)
+    print(send_district_data)
+    print(send_course_data)
     cursor.rewind()
-    return render_template('tiles.html', district_web_dataa=send_district_data)
+    return render_template('tiles.html', district_web_dataa=send_district_data, course_web_data=send_course_data)
 
 
 @app.route('/all')
 def all_district_data():
     send_district_data = get_all()
+    for college in send_district_data:
+        college['course'] = eval(college['course'])
+
+    send_course_data = []
+    for college in send_district_data:
+        courses = college['course']
+        send_course_data.extend(courses)
+
     cursor.rewind()
-    return render_template('tiles.html', district_web_dataa=send_district_data)
+    return render_template('tiles.html', district_web_dataa=send_district_data, course_web_data=send_course_data)
 
 
 @app.route('/government')
 def government_district_data():
     send_district_data = get_government()
+    for college in send_district_data:
+        college['course'] = eval(college['course'])
+
+    send_course_data = []
+    for college in send_district_data:
+        courses = college['course']
+        send_course_data.extend(courses)
+
     cursor.rewind()
-    return render_template('tiles.html', district_web_dataa=send_district_data)
+    return render_template('tiles.html', district_web_dataa=send_district_data, course_web_data=send_course_data)
 
 
 @app.route('/private')
 def private_district_data():
     send_district_data = get_private()
+    for college in send_district_data:
+        college['course'] = eval(college['course'])
+
+    send_course_data = []
+    for college in send_district_data:
+        courses = college['course']
+        send_course_data.extend(courses)
+
     cursor.rewind()
-    return render_template('tiles.html', district_web_dataa=send_district_data)
+    return render_template('tiles.html', district_web_dataa=send_district_data, course_web_data=send_course_data)
 
 
 @app.route('/other')
 def other_district_data():
     send_district_data = get_other()
+    for college in send_district_data:
+        college['course'] = eval(college['course'])
+
+    send_course_data = []
+    for college in send_district_data:
+        courses = college['course']
+        send_course_data.extend(courses)
+
     cursor.rewind()
-    return render_template('tiles.html', district_web_dataa=send_district_data)
+    return render_template('tiles.html', district_web_dataa=send_district_data, course_web_data=send_course_data)
 
 
 @app.route('/about')
