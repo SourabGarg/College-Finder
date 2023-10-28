@@ -13,8 +13,9 @@ HOME:
 
 RESULT:
 ![image](https://github.com/SourabGarg/College-Finder/assets/112079423/1f2ac6eb-fe91-4f61-a220-3ee1aec6a6dc)
-![image](https://github.com/SourabGarg/College-Finder/assets/112079423/bbccd883-6ea0-42cc-aef2-9ebd6cb00269)
+![image](https://github.com/SourabGarg/College-Finder/assets/112079423/4b76a1cd-cbb7-47e2-b89c-081067d8b72d)
 
 
 ABOUT:
-![image](https://github.com/SourabGarg/College-Finder/assets/112079423/ff52b8f2-3270-4f38-829c-7f8034be26f4)
+![image](https://github.com/SourabGarg/College-Finder/assets/112079423/67c79276-21db-47d5-8cf6-462f56d3aab3)
+
